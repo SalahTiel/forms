@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Formulário</title>
+</head>
+<body>
+
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+  </div>
+
+
+  <form id="multiStepForm" action="https://formsubmit.co/salatielmf49@gmail.com" method="POST" enctype="multipart/form-data">
+  
+    <input type="hidden" name="_next" value="http://127.0.0.1:5500/sucesso">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Novo envio do formulário!">
+    <input type="hidden" name="_template" value="box">
+  
+
+    <!-- Passo 1 -->
+    <div class="form-step active">
+      <legend>DADOS GERAIS</legend>
+
+      <div class="docType">
+          <input id="cpfradio" type="radio" name="Tipo-de-cadastro" value="CPF" checked onchange="toggleDoc()">
+          <label for="cpfradio">Cadastro com CPF</label>
+          
+          <input id="cnpjradio" type="radio" name="Tipo-de-cadastro" value="CNPJ" onchange="toggleDoc()">
+          <label for="cnpjradio">Cadastro com CNPJ</label>
+      </div>
+
+      <div class="cpf-div">
+          <label for="nome">| Nome</label>
+          <input id="nomeField" type="text" name="Nome" data-required="true">
+
+          <label for="">| CPF</label>
+          <input id="cpfField" maxlength="14" type="text" name="CPF" data-required="true">
+
+      </div>
+
+      <div class="cnpj-div">
+          <label for="">| Razão Social</label>
+          <input id="Razao-SocialField" type="text" name="Razao-Social" data-required="false">
+
+          <label for="">| CNPJ</label>
+          <input id="cnpjField" maxlength="18" type="text" name="CNPJ" data-required="false">
+      </div>
+
+
+
+      <div class="button-group">
+          <button class="left" type="button" disabled><</button>
+          <button type="button" onclick="nextStep()">></button>
+      </div>
+    </div>
+
+     <!-- Passo 2 -->
+     <div class="form-step">
+      <legend>DADOS DE CONTATO</legend>
+
+      <label for="email">| E-mail</label>
+      <input type="email" name="Email" data-required="true">
+
+      <label for="telField">| Telefone</label>
+      <input id="telField" name="Telefone" type="text" maxlength="15" data-required="true">
+
+      <div class="button-group">
+        <button class="left" type="button" onclick="prevStep()"><</button>
+        <button type="button" onclick="nextStep()">></button>
+      </div>
+    </div>
+
+    <!-- Passo 3 -->
+    <div class="form-step">
+      <legend>ENDEREÇO</legend>
+
+      <div class="flex">
+        <div class="flexChieldMedium">
+          <label for="">| CEP</label>
+          <input type="text" name="CEP" id="cepField" maxlength="9" data-required="true">
+        </div>
+
+        <div class="flexChieldLarge">
+          <label for="">| Rua / Av</label>
+          <input type="text" id="rua" name="Rua" data-required="true">
+        </div>
+      </div>
+     
+
+      <div class="flex">
+        <div class="flexChieldLarge">
+          <label for="">| Cidade</label>
+          <input type="text" id="cidade" name="Cidade" data-required="true"">
+        </div>
+
+        <div class="flexChieldSmall">
+          <label for="">| UF</label>
+          <input type="text" id="estado" name="UF" data-required="true">
+        </div>
+      </div>
+
+      
+
+      <div class="flex">
+        <div class="flexChieldLarge">
+          <label for="">| Bairro</label>
+          <input type="" id="bairro" name="Bairro" data-required="true">
+        </div>
+
+        <div class="flexChieldSmall">
+          <label for="">| Número</label>
+          <input type="number" name="Número" data-required="true">
+        </div>
+      </div>
+      
+      <label for="">| Complemento</label>
+      <input type="text">
+
+
+      <div class="button-group">
+        <button class="left" type="button" onclick="prevStep()"><</button>
+        <button type="button" onclick="nextStep()">></button>
+      </div>
+    </div>
+
+
+    <!-- Passo 4 -->
+    <div class="form-step">
+      <legend>DESEJA ANEXAR ALGUM ARQUIVO?</legend>
+
+      <label for="fileField">Selecionar arquivo(s)</label>
+      <label for="nothing">| Arquivos:</label>
+      <ul id="filesList"></ul>
+      <input id="fileField" type="file" name="arquivo" multiple>
+      
+
+      <div class="button-group">
+        <button class="left" type="button" onclick="prevStep()"><</button>
+        <button type="submit">Enviar</button>
+      </div>
+    </div>
+  </form>
+  
+
+
+
+</body>
+<script src="script.js"></script>
+</html>
